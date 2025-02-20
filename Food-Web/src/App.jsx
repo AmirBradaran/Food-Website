@@ -13,15 +13,7 @@ import CartBox from "./Pages/CartBox"
 export default function App() {
   const { token } = useSelector((state) => state.auth);
   return (
-<Box
-  sx={{
-    position: "fixed",
-    height: "100vh",
-    width:"100%",
-    backgroundImage: 'url("/slide2.jpg")',
-    backgroundSize: "cover",
-    backgroundPosition: "center"
-    }}>
+<Box>
       <CssBaseline/>
       <Navbar/>
       <Box>

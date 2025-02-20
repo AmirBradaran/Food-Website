@@ -31,12 +31,13 @@ export default function Navbar() {
     <Stack
       color="var(--forth)"
       py={2}
-      px={5}
+      px={10}
       direction="row-reverse"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ backgroundColor: "#531b2481", direction: "rtl" }}
+      sx={{ backgroundColor: "var(--first)", direction: "rtl" }}
     >
+      {/* {Start Left Icon NavBar} */}
       <Stack direction="row-reverse" gap={2.5}>
         <Link to={"/cart-box"}>
           <ShoppingCartIcon
@@ -45,7 +46,7 @@ export default function Navbar() {
               color: "var(--forth)",
               fontSize: "2.25rem",
               transition: "all 0.15s",
-              ":hover": { background: "var(--first)", borderRadius: "50%" },
+              ":hover": { translate:"0 -5px" , color:"white" },
             }}
           />
         </Link>
@@ -55,32 +56,28 @@ export default function Navbar() {
               textDecoration: "none",
               color: "var(--forth)",
               fontSize: "2.25rem",
+              transition:"all 0.15s",
+              ":hover":{translate:"0 -5px" , color:"white"}
             }}
           />
         </Link>
       </Stack>
+      {/* {End Left Icon NavBar} */}
 
-      <Link
-        to={"/"}
-        style={{ display: "flex", justifyContent: "center", flex: 1 }}
-      >
+      {/* {Start Logo } */}
+      <Link to={"/"}>
         <FastfoodIcon
           sx={{
             color: "var(--forth)",
             fontSize: "3rem",
             transition: "all 0.15s",
-            ":hover": { translate: "0 -5px" },
+            ":hover": { transform: "translateY(-5px)" },
           }}
         />
       </Link>
+      {/* {End Logo } */}
 
-      <IconButton
-        sx={{ display: { xs: "flex", sm: "none" }, color: "var(--forth)" }}
-        onClick={toggleDrawer}
-      >
-        <MenuIcon sx={{ fontSize: "2.25rem" }} />
-      </IconButton>
-
+      {/* {Link NavBar Start} */}
       <Grid2
         alignItems="center"
         sx={{ display: "flex", gap: 2.5, display: { xs: "none", sm: "flex" } }}
@@ -94,7 +91,11 @@ export default function Navbar() {
             fontWeight: "bolder",
             transition: "all 0.15s",
             cursor: "pointer",
-            ":hover": { translate: "0px -5px", color: "var(--third)" },
+            ":hover": {
+              translate: "0px -5px",
+              color: "white",
+              fontweight: "bold",
+            },
             textDecoration: "none",
             color: "var(--forth)",
           }}
@@ -110,7 +111,11 @@ export default function Navbar() {
             fontWeight: "bolder",
             transition: "all 0.15s",
             cursor: "pointer",
-            ":hover": { translate: "0px -5px", color: "var(--third)" },
+            ":hover": {
+              translate: "0px -5px",
+              color: "white",
+              fontweight: "bold",
+            },
             textDecoration: "none",
             color: "var(--forth)",
           }}
@@ -126,7 +131,11 @@ export default function Navbar() {
             fontWeight: "bolder",
             transition: "all 0.15s",
             cursor: "pointer",
-            ":hover": { translate: "0px -5px", color: "var(--third)" },
+            ":hover": {
+              translate: "0px -5px",
+              color: "white",
+              fontweight: "bold",
+            },
             textDecoration: "none",
             color: "var(--forth)",
           }}
@@ -142,7 +151,11 @@ export default function Navbar() {
             fontWeight: "bolder",
             transition: "all 0.15s",
             cursor: "pointer",
-            ":hover": { translate: "0px -5px", color: "var(--third)" },
+            ":hover": {
+              translate: "0px -5px",
+              color: "white",
+              fontweight: "bold",
+            },
             textDecoration: "none",
             color: "var(--forth)",
           }}
@@ -150,30 +163,66 @@ export default function Navbar() {
           درباره ما
         </Grid2>
       </Grid2>
+      {/* {Link NavBar End} */}
 
-      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer} >
+      {/* {Icon Menu Start} */}
+      <IconButton
+        sx={{ display: { xs: "flex", sm: "none" }, color: "var(--forth)" }}
+        onClick={toggleDrawer}
+      >
+        <MenuIcon sx={{ fontSize: "2.25rem" }} />
+      </IconButton>
+      {/* {Icon Menu End} */}
+
+      {/* {List Menu Start} */}
+      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
         <Box
-          sx={{ width: 150 , height:"100%" }}
+          sx={{
+            width: 150,
+            height: "100%",
+            background: "linear-gradient(175deg , var(--first) , var(--forth))",
+          }}
           role="presentation"
           onClick={toggleDrawer}
           onKeyDown={toggleDrawer}
         >
           <List>
-            <ListItem button sx={{color:"var(--first)"}} component={Link} to="/">
-              <ListItemText   primary="خانه" />
+            <ListItem
+              button
+              sx={{ color: "var(--forth)" }}
+              component={Link}
+              to="/"
+            >
+              <ListItemText primary="خانه" />
             </ListItem>
-            <ListItem button sx={{color:"var(--first)"}} component={Link} to="/menu">
-              <ListItemText  primary="منو" />
+            <ListItem
+              button
+              sx={{ color: "var(--forth)" }}
+              component={Link}
+              to="/menu"
+            >
+              <ListItemText primary="منو" />
             </ListItem>
-            <ListItem button sx={{color:"var(--first)"}} component={Link} to={token ? "/profile" : "/auth"}>
-              <ListItemText  primary={token ? "پروفایل" : "ورود"} />
+            <ListItem
+              button
+              sx={{ color: "var(--forth)" }}
+              component={Link}
+              to={token ? "/profile" : "/auth"}
+            >
+              <ListItemText primary={token ? "پروفایل" : "ورود"} />
             </ListItem>
-            <ListItem button sx={{color:"var(--first)"}} component={Link} to="/about-us">
-              <ListItemText  primary="درباره ما" />
+            <ListItem
+              button
+              sx={{ color: "var(--forth)" }}
+              component={Link}
+              to="/about-us"
+            >
+              <ListItemText primary="درباره ما" />
             </ListItem>
           </List>
         </Box>
       </Drawer>
+      {/* {List Menu End} */}
     </Stack>
   );
 }

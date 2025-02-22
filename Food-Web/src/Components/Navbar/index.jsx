@@ -7,6 +7,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Button,
 } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import React, { useState } from "react";
@@ -35,47 +36,36 @@ export default function Navbar() {
       direction="row-reverse"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ backgroundColor: "var(--first)", direction: "rtl" }}
+      sx={{ direction: "rtl" }}
     >
       {/* {Start Left Icon NavBar} */}
       <Stack direction="row-reverse" gap={2.5}>
-        <Link to={"/cart-box"}>
-          <ShoppingCartIcon
-            sx={{
-              textDecoration: "none",
-              color: "var(--forth)",
-              fontSize: "2.25rem",
-              transition: "all 0.15s",
-              ":hover": { translate:"0 -5px" , color:"white" },
-            }}
-          />
-        </Link>
+        <Button
+          LinkComponent={token ? "/profile" : "/auth"}
+          variant="contained"
+          sx={{
+            color: "var(--first)",
+            fontSize: "1.15rem",
+            fontWeight: "bold",
+            borderRadius: 3,
+            background: "white",
+          }}
+        >
+          {token ? "پروفایل" : "ورود"}
+        </Button>
         <Link to={"/menu"}>
           <SearchIcon
             sx={{
               textDecoration: "none",
-              color: "var(--forth)",
+              color: "var(--first)",
               fontSize: "2.25rem",
-              transition:"all 0.15s",
-              ":hover":{translate:"0 -5px" , color:"white"}
+              transition: "all 0.15s",
+              ":hover": { translate: "0 -5px", color: "white" },
             }}
           />
         </Link>
       </Stack>
       {/* {End Left Icon NavBar} */}
-
-      {/* {Start Logo } */}
-      <Link to={"/"}>
-        <FastfoodIcon
-          sx={{
-            color: "var(--forth)",
-            fontSize: "3rem",
-            transition: "all 0.15s",
-            ":hover": { transform: "translateY(-5px)" },
-          }}
-        />
-      </Link>
-      {/* {End Logo } */}
 
       {/* {Link NavBar Start} */}
       <Grid2
@@ -93,11 +83,11 @@ export default function Navbar() {
             cursor: "pointer",
             ":hover": {
               translate: "0px -5px",
-              color: "white",
+              color: "var(--first)",
               fontweight: "bold",
             },
             textDecoration: "none",
-            color: "var(--forth)",
+            color: "var(--first)",
           }}
         >
           خانه
@@ -113,11 +103,11 @@ export default function Navbar() {
             cursor: "pointer",
             ":hover": {
               translate: "0px -5px",
-              color: "white",
+              color: "var(--first)",
               fontweight: "bold",
             },
             textDecoration: "none",
-            color: "var(--forth)",
+            color: "var(--first)",
           }}
         >
           منو
@@ -125,7 +115,7 @@ export default function Navbar() {
         <Grid2
           item
           component={Link}
-          to={token ? "/profile" : "/auth"}
+          to="/orders"
           sx={{
             fontSize: "1.25rem",
             fontWeight: "bolder",
@@ -133,14 +123,14 @@ export default function Navbar() {
             cursor: "pointer",
             ":hover": {
               translate: "0px -5px",
-              color: "white",
+              color: "var(--first)",
               fontweight: "bold",
             },
             textDecoration: "none",
-            color: "var(--forth)",
+            color: "var(--first)",
           }}
         >
-          {token ? "پروفایل" : "ورود"}
+          سفارش ها
         </Grid2>
         <Grid2
           item
@@ -153,17 +143,29 @@ export default function Navbar() {
             cursor: "pointer",
             ":hover": {
               translate: "0px -5px",
-              color: "white",
+              color: "var(--first)",
               fontweight: "bold",
             },
             textDecoration: "none",
-            color: "var(--forth)",
+            color: "var(--first)",
           }}
         >
           درباره ما
         </Grid2>
       </Grid2>
       {/* {Link NavBar End} */}
+      {/* {Start Logo } */}
+      <Link to={"/"}>
+        <FastfoodIcon
+          sx={{
+            color: "var(--first)",
+            fontSize: "3rem",
+            transition: "all 0.15s",
+            ":hover": { transform: "translateY(-5px)" },
+          }}
+        />
+      </Link>
+      {/* {End Logo } */}
 
       {/* {Icon Menu Start} */}
       <IconButton

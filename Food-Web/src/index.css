@@ -4,5 +4,9 @@
     --third:#32373D;
     --forth:#cfc2b0;
     --fifth:#353533;
-    --six:#00DF82;
+    --six:#34F851;
+}
+*{
+    margin: 0;
+    padding: 0;
 }

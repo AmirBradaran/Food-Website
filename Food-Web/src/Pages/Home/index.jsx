@@ -1,13 +1,11 @@
-import React from 'react'
-import SliderHm from './SliderHm'
-import CategoriesHm from './CategoriesHm'
-import Offers from './Offers'
+import React from "react";
+import CategoriesHm from "./CategoriesHm";
+import FirstPart from "./FirstPart";
 export default function Home() {
   return (
     <>
-     <SliderHm/> 
-     <CategoriesHm/>
-     <Offers/>
+      <FirstPart />
+      <CategoriesHm />
     </>
-  )
+  );
 }

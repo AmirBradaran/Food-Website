@@ -37,9 +37,10 @@ export default function Navbar() {
       alignItems="center"
       justifyContent="space-between"
       sx={{ direction: "rtl" }}
+      zIndex="1002"
     >
       {/* {Start Left Icon NavBar} */}
-      <Stack direction="row-reverse" gap={2.5}>
+      <Stack direction="row-reverse" gap={2.5} fontFamily={'IranYekan'} sx={{zIndex:"1001"}}>
         <Button
           LinkComponent={token ? "/profile" : "/auth"}
           variant="contained"
@@ -49,6 +50,8 @@ export default function Navbar() {
             fontWeight: "bold",
             borderRadius: 3,
             background: "white",
+            width:"100px",
+            fontFamily:"IranYekan"
           }}
         >
           {token ? "پروفایل" : "ورود"}
@@ -70,7 +73,7 @@ export default function Navbar() {
       {/* {Link NavBar Start} */}
       <Grid2
         alignItems="center"
-        sx={{ display: "flex", gap: 2.5, display: { xs: "none", sm: "flex" } }}
+        sx={{ display: "flex", gap: 2.5, display: { xs: "none", sm: "flex" }  , zIndex:"1002" }}
       >
         <Grid2
           item
@@ -155,13 +158,14 @@ export default function Navbar() {
       </Grid2>
       {/* {Link NavBar End} */}
       {/* {Start Logo } */}
-      <Link to={"/"}>
+      <Link to={"/"} style={{ zIndex:"1002"}}>
         <FastfoodIcon
           sx={{
             color: "var(--first)",
             fontSize: "3rem",
             transition: "all 0.15s",
             ":hover": { transform: "translateY(-5px)" },
+            zIndex:"1002"
           }}
         />
       </Link>
@@ -169,10 +173,10 @@ export default function Navbar() {
 
       {/* {Icon Menu Start} */}
       <IconButton
-        sx={{ display: { xs: "flex", sm: "none" }, color: "var(--forth)" }}
+        sx={{ display: { xs: "flex", sm: "none" }, color: "var(--forth)" , zIndex:"1002" }}
         onClick={toggleDrawer}
       >
-        <MenuIcon sx={{ fontSize: "2.25rem" }} />
+        <MenuIcon sx={{ fontSize: "2.25rem" , zIndex:"1002" }} />
       </IconButton>
       {/* {Icon Menu End} */}
 
@@ -182,7 +186,7 @@ export default function Navbar() {
           sx={{
             width: 150,
             height: "100%",
-            background: "linear-gradient(175deg , var(--first) , var(--forth))",
+            background: "linear-gradient(175deg , var(--six) , white)", zIndex:"1002"
           }}
           role="presentation"
           onClick={toggleDrawer}

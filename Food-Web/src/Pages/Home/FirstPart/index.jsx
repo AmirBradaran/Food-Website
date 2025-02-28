@@ -1,18 +1,25 @@
 import React from "react";
-import Text from "./Text";
+import {
+  Box,
+  Button,
+  Card,
+  CardMedia,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import ImgBack from "./ImgBack";
+import Text from "./TextFp";
 import BestIcons from "./BestIcons";
-import { Stack } from "@mui/material";
-import ImgSec from "./ImgSec";
+
 export default function FirstPart() {
+  const theme = useTheme();
+
   return (
-    <Stack direction="column">
-      <Stack sx={{
-        width:"100%",
-        gap:"190px",
-      }} direction="row-reverse" gap={2} >
-        <Text />
-        <ImgSec />
-      </Stack>
+    <Stack direction={"row"}>
+      <ImgBack />
+      <Text />
       <BestIcons />
     </Stack>
   );

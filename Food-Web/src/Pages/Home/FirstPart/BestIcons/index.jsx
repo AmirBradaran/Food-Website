@@ -18,6 +18,7 @@ export default function BestIcons() {
           backgroundColor: "#222",
           color: "white",
           padding: "10px 15px",
+          paddingLeft:"30px",
           borderRadius: "5px 20px 5px 20px",
           width: "200px",
           justifyContent: "space-between",

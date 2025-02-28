@@ -10,6 +10,7 @@ import Menu from "./Pages/Menu"
 import NotFound from "./Pages/NotFound"
 import Profile from "./Pages/Profile"
 import CartBox from "./Pages/CartBox"
+import Footer from './Components/Footer';
 export default function App() {
   const { token } = useSelector((state) => state.auth);
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path='/cart-box' element={ token ? < CartBox /> : <Navigate to={"/auth"}/>} />
         </Routes>
       </Box>
+      <Footer/>
     </Box>
   )
 }

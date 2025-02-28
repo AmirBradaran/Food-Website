@@ -1,11 +1,11 @@
 import React from "react";
-import CategoriesHm from "./CategoriesHm";
 import FirstPart from "./FirstPart";
+import AboutUsHm from "./AboutUsHm";
 export default function Home() {
   return (
     <>
       <FirstPart />
-      <CategoriesHm />
+      <AboutUsHm/>
     </>
   );
 }

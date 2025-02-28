@@ -8,7 +8,7 @@ export default function ImgBack() {
           display: "flex",
           justifyContent: "right",
           alignItems: "center",
-          height: "100vh",
+          height: "102vh",
           width: "40%",
           background: "linear-gradient(to right, #34F851, white)",
           borderBottomRightRadius: 200,

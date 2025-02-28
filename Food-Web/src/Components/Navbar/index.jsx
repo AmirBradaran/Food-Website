@@ -40,7 +40,12 @@ export default function Navbar() {
       zIndex="1002"
     >
       {/* {Start Left Icon NavBar} */}
-      <Stack direction="row-reverse" gap={2.5} fontFamily={'IranYekan'} sx={{zIndex:"1001"}}>
+      <Stack
+        direction="row-reverse"
+        gap={2.5}
+        fontFamily={"IranYekan"}
+        sx={{ zIndex: "1001" }}
+      >
         <Button
           LinkComponent={token ? "/profile" : "/auth"}
           variant="contained"
@@ -50,8 +55,9 @@ export default function Navbar() {
             fontWeight: "bold",
             borderRadius: 3,
             background: "white",
-            width:"100px",
-            fontFamily:"IranYekan"
+            width: "100px",
+            fontFamily: "IranYekan",
+            ":hover": { backgroundColor: "#F56F10", color: "white" },
           }}
         >
           {token ? "پروفایل" : "ورود"}
@@ -72,100 +78,70 @@ export default function Navbar() {
 
       {/* {Link NavBar Start} */}
       <Grid2
-        alignItems="center"
-        sx={{ display: "flex", gap: 2.5, display: { xs: "none", sm: "flex" }  , zIndex:"1002" }}
-      >
-        <Grid2
-          item
-          component={Link}
-          to="/"
-          sx={{
-            fontSize: "1.25rem",
-            fontWeight: "bolder",
-            transition: "all 0.15s",
-            cursor: "pointer",
-            ":hover": {
-              translate: "0px -5px",
-              color: "var(--first)",
-              fontweight: "bold",
-            },
-            textDecoration: "none",
-            color: "var(--first)",
-          }}
-        >
-          خانه
-        </Grid2>
-        <Grid2
-          item
-          component={Link}
-          to="/menu"
-          sx={{
-            fontSize: "1.25rem",
-            fontWeight: "bolder",
-            transition: "all 0.15s",
-            cursor: "pointer",
-            ":hover": {
-              translate: "0px -5px",
-              color: "var(--first)",
-              fontweight: "bold",
-            },
-            textDecoration: "none",
-            color: "var(--first)",
-          }}
-        >
-          منو
-        </Grid2>
-        <Grid2
-          item
-          component={Link}
-          to="/orders"
-          sx={{
-            fontSize: "1.25rem",
-            fontWeight: "bolder",
-            transition: "all 0.15s",
-            cursor: "pointer",
-            ":hover": {
-              translate: "0px -5px",
-              color: "var(--first)",
-              fontweight: "bold",
-            },
-            textDecoration: "none",
-            color: "var(--first)",
-          }}
-        >
-          سفارش ها
-        </Grid2>
-        <Grid2
-          item
-          component={Link}
-          to="/about-us"
-          sx={{
-            fontSize: "1.25rem",
-            fontWeight: "bolder",
-            transition: "all 0.15s",
-            cursor: "pointer",
-            ":hover": {
-              translate: "0px -5px",
-              color: "var(--first)",
-              fontweight: "bold",
-            },
-            textDecoration: "none",
-            color: "var(--first)",
-          }}
-        >
-          درباره ما
-        </Grid2>
-      </Grid2>
+  alignItems="center"
+  sx={{
+    display: "flex",
+    gap: 2.5,
+    display: { xs: "none", sm: "flex" },
+    zIndex: "1002",
+  }}
+>
+  {[
+    { to: "/", label: "خانه" },
+    { to: "/menu", label: "منو" },
+    { to: "/orders", label: "سفارش ها" },
+    { to: "/about-us", label: "درباره ما" },
+  ].map((item, index) => (
+    <Grid2
+      key={index}
+      item
+      component={Link}
+      to={item.to}
+      sx={{
+        fontSize: "1.25rem",
+        fontWeight: "bolder",
+        position: "relative",
+        transition: "all 0.15s",
+        cursor: "pointer",
+        textDecoration: "none",
+        color: "var(--first)",
+        "&::after": {
+          content: '""',
+          position: "absolute",
+          left: 0,
+          bottom: "-3px",
+          width: "100%",
+          height: "3px",
+          backgroundColor: "var(--second)",
+          transform: "scaleX(0)",
+          transformOrigin: "right",
+          transition: "transform 0.3s ease-out",
+        },
+        "&:hover": {
+          color: "var(--first)",
+          "&::after": {
+            transform: "scaleX(1)",
+            transformOrigin: "left",
+
+          },
+        },
+      }}
+    >
+      {item.label}
+    </Grid2>
+  ))}
+</Grid2>
+
       {/* {Link NavBar End} */}
       {/* {Start Logo } */}
-      <Link to={"/"} style={{ zIndex:"1002"}}>
+      <Link to={"/"} style={{ zIndex: "1002" }}>
         <FastfoodIcon
           sx={{
             color: "var(--first)",
             fontSize: "3rem",
             transition: "all 0.15s",
             ":hover": { transform: "translateY(-5px)" },
-            zIndex:"1002"
+            zIndex: "1002",
           }}
         />
       </Link>
@@ -173,10 +149,14 @@ export default function Navbar() {
 
       {/* {Icon Menu Start} */}
       <IconButton
-        sx={{ display: { xs: "flex", sm: "none" }, color: "var(--forth)" , zIndex:"1002" }}
+        sx={{
+          display: { xs: "flex", sm: "none" },
+          color: "var(--forth)",
+          zIndex: "1002",
+        }}
         onClick={toggleDrawer}
       >
-        <MenuIcon sx={{ fontSize: "2.25rem" , zIndex:"1002" }} />
+        <MenuIcon sx={{ fontSize: "2.25rem", zIndex: "1002" }} />
       </IconButton>
       {/* {Icon Menu End} */}
 
@@ -186,7 +166,8 @@ export default function Navbar() {
           sx={{
             width: 150,
             height: "100%",
-            background: "linear-gradient(175deg , var(--six) , white)", zIndex:"1002"
+            background: "linear-gradient(175deg , var(--six) , white)",
+            zIndex: "1002",
           }}
           role="presentation"
           onClick={toggleDrawer}

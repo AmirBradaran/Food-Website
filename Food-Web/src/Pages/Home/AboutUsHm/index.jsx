@@ -1,11 +1,19 @@
 import React from "react";
-import { Box, Button, Card, CardMedia, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardMedia,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 const images = ["img1-1.jpg", "img2-1.jpg", "img3-1.jpg", "img4-1.jpg"];
 
 const FoodGallery = () => {
   return (
-    <Stack direction={"row-reverse"}>
+    <Stack direction={"row-reverse"} alignItems={"center"} gap={0}>
       <Box sx={{ display: "flex" }}>
         <Grid container spacing={2} justifyContent="end">
           {/* ردیف اول */}
@@ -88,17 +96,37 @@ const FoodGallery = () => {
         </Grid>
       </Box>
 
-      <Box sx={{direction:"rtl"}}>
-        <Typography variant="h3">درباره رستوران</Typography>
-        <Typography variant="h4">خوشمره ترین ها در اینجاست</Typography>
-        <Typography variant="h6">
+      <Stack
+        gap={2}
+        sx={{ direction: "rtl" }}
+        justifyContent={"end"}
+        alignItems={"start"}
+      >
+        <Typography fontFamily={"IranYekan"} variant="h3">
+          درباره رستوران
+        </Typography>
+        <Typography fontFamily={"IranYekan"} variant="h4">
+          خوشمره ترین ها در اینجاست
+        </Typography>
+        <Typography fontFamily={"IranYekan"} variant="h6">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolor
           voluptatem quas, tempore atque iusto!
         </Typography>
-        <Button variant="contained">
-              مشاهده بیشتر
+        <Button
+          variant="contained"
+          sx={{
+            fontWeight: "bold",
+            fontFamily: "IranYekan",
+            width: "150px",
+            height: "50px",
+            background: "var(--six)",
+            ":hover": { background: "green" },
+            fontSize: "17px",
+          }}
+        >
+          مشاهده بیشتر
         </Button>
-      </Box>
+      </Stack>
     </Stack>
   );
 };

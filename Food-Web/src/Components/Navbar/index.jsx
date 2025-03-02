@@ -47,7 +47,8 @@ export default function Navbar() {
         sx={{ zIndex: "1001" }}
       >
         <Button
-          LinkComponent={token ? "/profile" : "/auth"}
+          component={Link}
+          to={token ? "/profile" : "/auth"}
           variant="contained"
           sx={{
             color: "var(--first)",
